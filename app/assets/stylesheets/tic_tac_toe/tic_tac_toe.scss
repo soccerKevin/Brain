@@ -1,0 +1,49 @@
+.board{
+  width: 48rem;
+  height: 48rem;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  border: inset 2px blue;
+  display: flex;
+  flex-wrap: wrap;
+
+  .square{
+    width: 33.333%;
+    flex-basis: 33.333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px blue;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .value{
+    &.o{
+      background-color: white;
+      border: .5rem solid blue;
+      border-radius: 50%;
+      height: 66%;
+      width: 66%;
+    }
+
+    &.x{
+      height: 66%;
+      width: 66%;
+
+      &:before, &:after{
+        position: absolute;
+        left: 49%;
+        top: 15%;
+        content: ' ';
+        height: 75%;
+        width: 4px;
+        background-color: blue;
+      }
+
+      &:before{ transform: rotate(45deg); }
+      &:after{ transform: rotate(-45deg); }
+    }
+  }
+}
