@@ -1,0 +1,10 @@
+//= require_self
+//= require ./tic_tac_toe
+//= require ./score_board
+
+
+.tic_tac_toe{
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+}

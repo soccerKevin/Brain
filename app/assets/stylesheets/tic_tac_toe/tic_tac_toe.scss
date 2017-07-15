@@ -1,10 +1,10 @@
 .board{
   width: 48rem;
   height: 48rem;
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-  border: inset 2px blue;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  border: inset 2px black;
   display: flex;
   flex-wrap: wrap;
 
@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 2px blue;
+    border: solid 2px black;
     box-sizing: border-box;
     position: relative;
     cursor: pointer;
@@ -40,7 +40,7 @@
         content: ' ';
         height: 75%;
         width: 4px;
-        background-color: blue;
+        background-color: red;
       }
 
       &:before{ transform: rotate(45deg); }

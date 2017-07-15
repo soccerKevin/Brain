@@ -1,4 +1,4 @@
-@TicTacToe ||={}
+@TicTacToe ||= {}
 @TicTacToe.Square = class Square
   constructor: (elem)->
     @elem = $(elem)

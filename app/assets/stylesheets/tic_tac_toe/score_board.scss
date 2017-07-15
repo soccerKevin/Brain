@@ -1,0 +1,26 @@
+.score_board{
+  position: absolute;
+  width: 48rem;
+  display: flex;
+  min-height: 3rem;
+  left: 0;
+  top: 0;
+  border: solid 2px black;
+
+  > div{
+    border: solid 2px black;
+    color: white;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: .6rem .9rem;
+  }
+
+  .player1, .player2{
+    flex-basis: 33.333%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .player1{ background: blue; }
+  .player2{ background: red; }
+}
