@@ -5,12 +5,11 @@
     @current_player = 1
 
   set_player: (number)->
-    console.log "setting player: #{number}"
     @current_player = number
     player = "player#{number}"
     name = @elem.find(".#{player} .name").text()
     @elem.find('.current_player')
-      .removeClass('player1', 'player2')
+      .removeClass('player1 player2')
       .addClass(player)
       .text name
 

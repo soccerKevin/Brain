@@ -9,10 +9,10 @@
       @trigger 'click'
 
   is_free: ->
-    @elem.hasClass 'free'
+    @elem.find('.value').hasClass 'free'
 
-  set: (value)->
-    @elem.find('.value').addClass value
+  set_marker: (value)->
+    @elem.find('.value').removeClass('free').addClass value
 
   trigger: (event_name, data=@)->
     @elem.trigger "square.#{event_name}", data
