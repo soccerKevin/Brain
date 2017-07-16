@@ -8,9 +8,18 @@ class @TicTacToe
 
   square_handler: ->
     @elem.on 'square.click', (e, square)=>
-      return true unless square.is_free()
+      return true unless square.is_free() && @board.in_play()
       square.set_marker @current_player_marker()
+      return @display_end_game() if @board.finished()
       @toggle_player()
+
+  display_end_game: ->
+    setTimeout =>
+      if @board.winner
+        alert "The winner is #{@board.winner}"
+      else
+        alert "Cat's game, ¯\\\_(ツ)_/¯"
+    , 50
 
   current_player_marker: ->
     if @current_player == 1 then 'o' else 'x'
@@ -21,4 +30,3 @@ class @TicTacToe
   set_player: (number)->
     @current_player = number
     @score_board.set_player @current_player
-

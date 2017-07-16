@@ -13,4 +13,5 @@
 //= require rails-ujs
 //= require jquery3
 //= require jquery_ujs
+//= require_tree ./util
 //= require tic_tac_toe/main
