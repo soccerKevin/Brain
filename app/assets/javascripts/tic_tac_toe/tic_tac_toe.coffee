@@ -15,11 +15,9 @@ class @TicTacToe
 
   display_end_game: ->
     setTimeout =>
-      if @board.winner
-        alert "The winner is #{@board.winner}"
-      else
-        alert "Cat's game, ¯\\\_(ツ)_/¯"
-    , 50
+      event_name = if @board.winner then 'win' else 'draw'
+      @trigger event_name, @current_player
+    , 20
 
   current_player_marker: ->
     if @current_player == 1 then 'o' else 'x'
@@ -30,3 +28,6 @@ class @TicTacToe
   set_player: (number)->
     @current_player = number
     @score_board.set_player @current_player
+
+  trigger: (event_name, data)->
+    @elem.trigger "tic_tac_toe.#{event_name}", data
