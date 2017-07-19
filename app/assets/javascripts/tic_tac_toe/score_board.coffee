@@ -26,6 +26,6 @@
 
   draw_handler: ->
     $(document).on 'tic_tac_toe.draw', (e)=>
-    # alert "Cat's game, ¯\\\_(ツ)_/¯"
+      alert "Cat's game, ¯\\\_(ツ)_/¯"
 
 
