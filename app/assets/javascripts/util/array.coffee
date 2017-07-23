@@ -3,3 +3,6 @@ Array::first = (count=1)->
 
 Array::unique = ->
   Array.from new Set @
+
+Array::random = ->
+  @[Math.floor(Math.random() * @length)]
