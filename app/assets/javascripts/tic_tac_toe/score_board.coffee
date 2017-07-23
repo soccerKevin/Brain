@@ -22,10 +22,8 @@
     $(document).on 'tic_tac_toe.win', (e, winner)=>
       player = "player#{winner}"
       name = @elem.find(".#{player} .name").text()
-      alert "The winner is #{name}"
+      @trigger
 
   draw_handler: ->
     $(document).on 'tic_tac_toe.draw', (e)=>
       alert "Cat's game, ¯\\\_(ツ)_/¯"
-
-

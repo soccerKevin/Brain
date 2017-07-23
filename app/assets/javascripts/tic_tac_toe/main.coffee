@@ -2,6 +2,3 @@
 #= require ./board
 #= require ./square
 #= require ./score_board
-
-$ ->
-  new TicTacToe $('.tic_tac_toe')

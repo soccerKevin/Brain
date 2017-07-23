@@ -3,8 +3,11 @@ class @TicTacToe
     @elem = $(elem)
     @board = new TicTacToe.Board @elem.find '.board'
     @score_board = new TicTacToe.ScoreBoard @elem.find '.score_board'
-    @set_player 1
     @square_handler()
+
+  new_game: ->
+    @set_player 1
+    @trigger 'new_game', { elem: @elem, first_player: @current_player }
 
   square_handler: ->
     @elem.on 'square.click', (e, square)=>
@@ -28,6 +31,7 @@ class @TicTacToe
   set_player: (number)->
     @current_player = number
     @score_board.set_player @current_player
+    @trigger 'player_switch', @current_player
 
   trigger: (event_name, data)->
     @elem.trigger "tic_tac_toe.#{event_name}", data

@@ -17,7 +17,7 @@
     @squares()[index].value()
 
   finished: ->
-    @complete ||= @has_complete_set() || @filled()
+    @complete = @has_complete_set() || @filled()
 
   in_play: ->
     !@finished()
