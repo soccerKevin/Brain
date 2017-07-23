@@ -7,7 +7,11 @@ class @TicTacToe
 
   new_game: ->
     @set_current_player 1
-    @trigger 'new_game', { elem: @elem, first_player: @current_player }
+    @trigger 'new_game', {
+      elem: @elem,
+      first_player: @current_player,
+      score_board: @score_board
+    }
 
   square_handler: ->
     @elem.on 'square.click', (e, square)=>

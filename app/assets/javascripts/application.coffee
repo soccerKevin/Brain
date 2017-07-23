@@ -22,4 +22,3 @@ $ ->
   @tic_tac_toe = new TicTacToe $('.tic_tac_toe')
   @random_npc = new RandomNPC 1
   @tic_tac_toe.new_game()
-  @random_npc.display_name()

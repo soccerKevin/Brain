@@ -15,7 +15,8 @@
       .addClass(player)
       .text name
 
-
+  set_player_name: (number, name)->
+    @elem.find(".player#{number} .name").text name
 
   toggle_player: ->
     @set_current_player if @current_player == 1 then 2 else 1
