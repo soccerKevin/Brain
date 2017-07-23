@@ -6,7 +6,7 @@
     @win_handler()
     @draw_handler()
 
-  set_player: (number)->
+  set_current_player: (number)->
     @current_player = number
     player = "player#{number}"
     name = @elem.find(".#{player} .name").text()
@@ -15,8 +15,10 @@
       .addClass(player)
       .text name
 
+
+
   toggle_player: ->
-    @set_player if @current_player == 1 then 2 else 1
+    @set_current_player if @current_player == 1 then 2 else 1
 
   win_handler: ->
     $(document).on 'tic_tac_toe.win', (e, winner)=>

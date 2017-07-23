@@ -6,7 +6,7 @@ class @TicTacToe
     @square_handler()
 
   new_game: ->
-    @set_player 1
+    @set_current_player 1
     @trigger 'new_game', { elem: @elem, first_player: @current_player }
 
   square_handler: ->
@@ -26,11 +26,11 @@ class @TicTacToe
     if @current_player == 1 then 'o' else 'x'
 
   toggle_player: ->
-    @set_player if @current_player == 1 then 2 else 1
+    @set_current_player if @current_player == 1 then 2 else 1
 
-  set_player: (number)->
+  set_current_player: (number)->
     @current_player = number
-    @score_board.set_player @current_player
+    @score_board.set_current_player @current_player
     @trigger 'player_switch', @current_player
 
   trigger: (event_name, data)->
