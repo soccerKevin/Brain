@@ -18,6 +18,9 @@
   set_player_name: (number, name)->
     @elem.find(".player#{number} .name").text name
 
+  player_name: (number)->
+    @elem.find(".player#{number} .name").text()
+
   toggle_player: ->
     @set_current_player if @current_player == 1 then 2 else 1
 
@@ -25,7 +28,7 @@
     $(document).on 'tic_tac_toe.win', (e, winner)=>
       player = "player#{winner}"
       name = @elem.find(".#{player} .name").text()
-      @trigger
+      alert "#{@player_name(@current_player)} won!"
 
   draw_handler: ->
     $(document).on 'tic_tac_toe.draw', (e)=>
