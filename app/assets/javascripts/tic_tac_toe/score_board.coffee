@@ -8,12 +8,10 @@
 
   set_current_player: (number)->
     @current_player = number
-    player = "player#{number}"
-    name = @elem.find(".#{player} .name").text()
     @elem.find('.current_player')
       .removeClass('player1 player2')
-      .addClass(player)
-      .text name
+      .addClass("player#{number}")
+      .text @player_name number
 
   set_player_name: (number, name)->
     @elem.find(".player#{number} .name").text name
@@ -26,10 +24,8 @@
 
   win_handler: ->
     $(document).on 'tic_tac_toe.win', (e, winner)=>
-      player = "player#{winner}"
-      name = @elem.find(".#{player} .name").text()
-      alert "#{@player_name(@current_player)} won!"
+      @elem.find('.current_player').text "#{@player_name winner } won!"
 
   draw_handler: ->
     $(document).on 'tic_tac_toe.draw', (e)=>
-      alert "Cat's game, ¯\\\_(ツ)_/¯"
+      @elem.find('.current_player').text "Cat's game, ¯\\\_(ツ)_/¯"
