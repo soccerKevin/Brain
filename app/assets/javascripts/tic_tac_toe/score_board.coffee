@@ -6,26 +6,28 @@
     @win_handler()
     @draw_handler()
 
-  set_player: (number)->
+  set_current_player: (number)->
     @current_player = number
-    player = "player#{number}"
-    name = @elem.find(".#{player} .name").text()
     @elem.find('.current_player')
       .removeClass('player1 player2')
-      .addClass(player)
-      .text name
+      .addClass("player#{number}")
+      .text @player_name number
+
+  set_player_name: (number, name)->
+    @elem.find(".player#{number} .name").text name
+
+  player_name: (number)->
+    @elem.find(".player#{number} .name").text()
 
   toggle_player: ->
-    @set_player if @current_player == 1 then 2 else 1
+    @set_current_player if @current_player == 1 then 2 else 1
 
   win_handler: ->
     $(document).on 'tic_tac_toe.win', (e, winner)=>
-      player = "player#{winner}"
-      name = @elem.find(".#{player} .name").text()
-      alert "The winner is #{name}"
+      $wins = @elem.find(".player#{winner} .wins")
+      $wins.text parseInt($wins.text()) + 1
+      @elem.find('.current_player').text "#{@player_name winner } won!"
 
   draw_handler: ->
     $(document).on 'tic_tac_toe.draw', (e)=>
-      alert "Cat's game, ¯\\\_(ツ)_/¯"
-
-
+      @elem.find('.current_player').text "Cat's game, ¯\\\_(ツ)_/¯"

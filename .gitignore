@@ -22,3 +22,5 @@
 
 .byebug_history
 notes/*
+.DS_Store
+./**/.DS_Store

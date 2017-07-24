@@ -7,6 +7,7 @@
   click_handler: ->
     @elem.on 'click', (e)=>
       @trigger 'click'
+      false
 
   is_free: ->
     @elem.find('.value').hasClass 'free'
@@ -22,6 +23,9 @@
 
   value: ->
     @marker()
+
+  clear: ->
+    @elem.find('.value').removeClass('x o').addClass 'free'
 
   trigger: (event_name, data=@)->
     @elem.trigger "square.#{event_name}", data
