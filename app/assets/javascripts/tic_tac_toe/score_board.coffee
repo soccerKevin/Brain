@@ -24,6 +24,8 @@
 
   win_handler: ->
     $(document).on 'tic_tac_toe.win', (e, winner)=>
+      $wins = @elem.find(".player#{winner} .wins")
+      $wins.text parseInt($wins.text()) + 1
       @elem.find('.current_player').text "#{@player_name winner } won!"
 
   draw_handler: ->

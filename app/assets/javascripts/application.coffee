@@ -19,6 +19,6 @@
 #= require tic_tac_toe/main
 
 $ ->
-  @tic_tac_toe = new TicTacToe $('.tic_tac_toe')
-  @random_npc = new RandomNPC 1
-  @tic_tac_toe.new_game()
+  window.tic_tac_toe = new TicTacToe $('.tic_tac_toe')
+  window.random_npc = new RandomNPC 1
+  window.tic_tac_toe.new_game()

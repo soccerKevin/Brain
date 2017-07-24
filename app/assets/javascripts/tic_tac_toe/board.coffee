@@ -3,7 +3,6 @@
   constructor: (elem)->
     @elem = $(elem)
     @winner = false
-    @complete = false
     @squares()
 
   squares: ->
@@ -25,12 +24,17 @@
   filled: ->
     @squares().filter((square)-> square.taken()).length >= 9
 
+  clear: ->
+    @squares().map (square)-> square.clear()
+    @winner = false
+
   has_complete_set: ->
     @sets().filter((set)=>
       values = set.map (index)=> @square(index).value()
 
       return false if values.includes 'free'
       return false unless values.unique().length == 1
+
       @winner = values.first()
     ).length > 0
 
