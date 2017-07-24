@@ -18,6 +18,5 @@ class @RandomNPC
       @take_turn() if @board_elem? && current_player_number == @player_number
 
   take_turn: ->
-    console.log "free squares count: ", @board_elem.find('.square .value.free').length
     $(@board_elem.find('.square .value.free').get().random()).click()
 
