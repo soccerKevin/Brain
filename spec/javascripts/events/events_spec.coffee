@@ -1,12 +1,17 @@
 #= require brain/events/events
+window.Events = new Events()
 
 class Receiver
   constructor: ->
-    @found = false
+    @reset()
 
-  wait_for: (event_name)->
-    @e = window.Events.once event_name, =>
+  wait_for: (event_name, times = 1)->
+    @e = window.Events.on event_name, =>
       @found = true
+    , times
+
+  reset: ->
+    @found = false
 
   clean: ->
     try
@@ -79,3 +84,13 @@ describe 'Events', ->
   it 'should remove an event', ->
     @receiver.wait_for 'test_event'
     window.Events.remove @receiver.e
+
+  it 'should only respond once', ->
+    window.PRINT = true
+    @receiver.wait_for 'test_event'
+    window.Events.trigger 'test_event'
+    expect(@receiver.found).toBe true
+    @receiver.reset()
+
+    window.Events.trigger 'test_event'
+    expect(@receiver.found).toBe false

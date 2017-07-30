@@ -3,9 +3,9 @@ class @Events
     @events = {}
 
   trigger: (event_name, data)->
-    @event_matches(event_name).map (e)->
+    @event_matches(event_name).map (e)=>
       e.callback event_name, data
-      @remove e if -1000 < e.times-- <= 0
+      @remove e if -1000 < --e.times <= 0
 
   on: (event_matcher, callback, times=-1000)->
     e = new E event_matcher, callback, times
@@ -29,5 +29,3 @@ class @Events
 
     matches: (event_name)->
       new RegExp('^' + @matcher.split('*').join('.*') + '$').test event_name
-
-window.Events = new Events()
