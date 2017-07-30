@@ -39,6 +39,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry'
   gem 'better_errors'
+  gem "teaspoon-jasmine"
 end
 
 group :development do
