@@ -5,7 +5,7 @@ class @Events
   trigger: (event_name, data)->
     @event_matches(event_name).map (e)->
       e.callback event_name, data
-      @remove e if -1000 < e.times-- < 0
+      @remove e if -1000 < e.times-- <= 0
 
   on: (event_matcher, callback, times=-1000)->
     e = new E event_matcher, callback, times
@@ -14,7 +14,7 @@ class @Events
   once: (event_matcher, callback)->
     @on event_matcher, callback, 1
 
-  @remove: (e)->
+  remove: (e)->
     delete @events[e.id]
 
   event_matches: (event_name)->
@@ -28,6 +28,6 @@ class @Events
       @id = window.uid()
 
     matches: (event_name)->
-      @matcher.includes event_name
+      new RegExp('^' + @matcher.split('*').join('.*') + '$').test event_name
 
 window.Events = new Events()
