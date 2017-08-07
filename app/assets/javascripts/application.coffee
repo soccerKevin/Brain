@@ -13,10 +13,11 @@
 #= require rails-ujs
 #= require jquery3
 #= require jquery_ujs
-#= require names.coffee
+#= require names
 #= require_tree ./util
 #= require npc/random_npc
 #= require tic_tac_toe/main
+#  require brain/main
 
 $ ->
   window.tic_tac_toe = new TicTacToe $('.tic_tac_toe')
