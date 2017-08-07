@@ -1,1 +1,0 @@
-class @Memory extends Neuron
