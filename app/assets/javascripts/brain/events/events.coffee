@@ -4,10 +4,6 @@ class @Events
 
   trigger: (event_name, data)->
     @event_matches(event_name).map (e)=>
-<<<<<<< Updated upstream:app/assets/javascripts/brain/events/events.coffee
-      e.callback event_name, data
-=======
->>>>>>> Stashed changes:app/assets/javascripts/events/events.coffee
       @remove e if -1000 < --e.times <= 0
       setTimeout ->
         e.callback data, e
