@@ -17,7 +17,7 @@
 #= require_tree ./util
 #= require npc/random_npc
 #= require tic_tac_toe/main
-#  require brain/main
+#= require brain/main
 
 $ ->
   window.tic_tac_toe = new TicTacToe $('.tic_tac_toe')

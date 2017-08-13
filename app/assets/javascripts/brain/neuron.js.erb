@@ -1,0 +1,12 @@
+window.Neuron = {
+  create: function(data){
+    $.post("/neuron", data)
+      .done(function(response, status, request){
+        try{
+          eval(response);
+        }catch(e){
+          debugger
+        }
+      })
+  }
+}

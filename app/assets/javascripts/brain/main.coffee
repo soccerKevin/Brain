@@ -1,2 +1,2 @@
 #= require_tree ./events
-#= require neuron
+#= require ./neuron

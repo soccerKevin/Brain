@@ -1,4 +1,6 @@
 class NeuronController < ApplicationController
+  layout false
+
   def index
   end
 
@@ -6,8 +8,11 @@ class NeuronController < ApplicationController
   end
 
   def create
-    @neuron = Neuron.new name: 'brain'
-    binding.pry
+    @neuron = Neuron.new neuron_params
+    @neuron.save!
+    return render 'neurons/show'
+  rescue Exception => e
+    render json: { errors: e.to_s, status: 400 }
   end
 
   def edit
@@ -19,7 +24,8 @@ class NeuronController < ApplicationController
   def destroy
   end
 
-  def brain_params
-    params.require(:neuron)
+private
+  def neuron_params
+    params.require(:neuron).permit!
   end
 end
